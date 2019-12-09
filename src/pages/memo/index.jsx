@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent, memo } from 'react'
 
-class Memo extends Component {
+class MemoComponent extends Component {
   state = {
     age: 18,
     name: 'lz'
@@ -9,17 +9,50 @@ class Memo extends Component {
   render() {
     const { name } = this.state
     return (
-
-      <Foo name={name} />
+      <>
+        <button
+          onClick={() => {
+            this.setState({
+              age: this.state.age + 1
+            })
+          }}
+        >
+          click
+        </button>
+        <Foo name={name} />
+        <Bar name={name} />
+        <span>{this.state.age}</span>
+      </>
     )
   }
 }
 
-class Foo extends Component {
+// 子组件继承PureComponent的话，当props不变时，不会重新渲染
+// PureComponent其实是利用了ShouldComponentUpdate
+// 但是需要注意，PureComponent也是有局限性的，只能对值类型生效
+// 如果props是个对象，这不行
+class Foo extends PureComponent {
   render() {
     console.log('foo has rendered')
-    return <div>{this.props.name}</div>
+    return (
+      <>
+        <h3>this is Foo</h3>
+        <div>{this.props.name}</div>
+      </>
+    )
   }
 }
 
-export default Memo
+// 函数式组件使用memo来实现PureComponent功能
+// 注意是小写
+const Bar = memo(function(props) {
+  console.log('bar render')
+  return (
+    <>
+      <h3>this is Bar</h3>
+      <div>{props.name}</div>
+    </>
+  )
+})
+
+export default MemoComponent
