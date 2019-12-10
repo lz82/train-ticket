@@ -6,6 +6,7 @@ import ContextType from './pages/context/context-type'
 
 import Lazy from './pages/lazy'
 import Memo from './pages/memo'
+import StateHook from './pages/state-hook'
 
 import ErrorPage from './pages/error'
 
@@ -34,6 +35,8 @@ class App extends Component {
         <Lazy />
 
         <Memo />
+
+        <StateHook defaultCount={10} />
       </div>
     )
   }
