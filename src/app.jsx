@@ -9,6 +9,7 @@ import Memo from './pages/memo'
 import StateHook from './pages/state-hook'
 import EffectHook from './pages/effect-hook'
 import ContextHook from './pages/context-hook'
+import MemoHook from './pages/memo-hook'
 
 import ErrorPage from './pages/error'
 
@@ -43,6 +44,8 @@ class App extends Component {
         <EffectHook />
 
         <ContextHook />
+
+        <MemoHook />
       </div>
     )
   }
