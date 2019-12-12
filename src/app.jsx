@@ -1,14 +1,12 @@
 import React from 'react'
 import './app.css'
 
-import Consumer from './pages/context/consumer'
-import ContextType from './pages/context/context-type'
+import TodoList from './pages/todolist'
 
-function App () {
+function App() {
   return (
     <div className="app">
-      <Consumer />
-      <ContextType />
+      <TodoList />
     </div>
   )
 }
