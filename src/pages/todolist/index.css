@@ -1,0 +1,14 @@
+.todolist-container {
+  width: 600px;
+  height: 600px;
+  margin: 100px auto;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.btn.add{
+  margin-left: 10px;
+}
