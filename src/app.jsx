@@ -1,12 +1,11 @@
 import React from 'react'
-import './app.css'
+import './app.less'
 
 function App() {
-  return (
-    <div className="app">
-      app
-    </div>
-  )
+  return <div className="app">
+    app
+    <span className="txt">txt</span>
+  </div>
 }
 
 export default App
